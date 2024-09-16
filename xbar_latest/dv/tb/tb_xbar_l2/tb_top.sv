@@ -18,7 +18,7 @@ import seq_pkg::*;
 
           //setting the reset
           reset = 1;
-          #20; // Wait for 20 time units
+          #100; // Wait for 20 time units
           reset = 0; // Deassert reset
       end
       
@@ -68,6 +68,8 @@ import seq_pkg::*;
           //run_test("cons_write_test");
           //run_test("cons_write_test");
       end
+
+      
 
       
 //Parameters to be passed
@@ -129,7 +131,10 @@ import seq_pkg::*;
     .rst_n(reset)                   // Active Low Reset
     );
       
-
+    property check_data_req_i;
+	    @ (posedge clk) disable iff (reset)
+	    (master_if.data_req_i) |=> @ (posedge clk) master_if.data_gnt_o <= master_if.data_req_i;
+    endproperty 
 
 
     //Coverage bind: 
@@ -162,5 +167,9 @@ import seq_pkg::*;
       .clk(clk),
       .rst_n(rst_n)
     );
+
+
+    //assert property
+    data_gnt_check : assert property (check_data_req_i) else $display("Check for Data and Gnt FAIL");
 
   endmodule:tb_top

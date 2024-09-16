@@ -46,19 +46,11 @@ module xbar_l2_coverage
 covergroup l2_data_req_i @(posedge clk);
 			req_i_coverpoint:coverpoint data_req_i 
             { // Capture specific values
-                //bins all_bin       = {[9'b000000000:9'b100000000]}; // a range bin to check its working  
+                
                 bins all_bin       = {[9'b000000000:9'b100000000]}; // A range bin
-                //bins one_bin        = {9'b000000001}; // Least significant bit is 1
-                //bins LSB2_bin       = {9'b000000010}; // 2nd Least significant bit is 1
-                //bins acase          = {9'b100000001}; //
-                //bins allcase          = {9'b111111111};
-
-                //bins max_value_bin  = {9'b100000000}; // MSB is 1
-               // bins upper_half_bin = {[5'b00000, 4'b0001]:[5'b11111, 4'b1111]}; // Upper 4 bits are significant
-               //"with" indicates constarints usage and "item" is used instead of the actual signal name
                 bins odd_values     = {[9'b000000001:9'b111111111]} with (item % 2 == 1'b1); // Odd numbers  : In binary, numbers are odd when their LSB is 1
                 bins even_values    = {[9'b000000000:9'b111111110]} with (item % 2 == 1'b0); // Even numbers : In binary, numbers are even when their LSB is 0
-        }// iff (data_req_i[0] == 1'b1); // Condition to hit only odd values
+        }
 
 endgroup
 
@@ -69,14 +61,7 @@ covergroup l2_data_gnt_o @(posedge clk);
                 bins zero_bin       = {9'b000000000}; // All bits are 0
                 bins one_bin        = {9'b000000001}; // Least significant bit is 1
                 bins LSB2_bin       = {9'b000000010}; // 2nd Least significant bit is 1
-                //bins acase          = {9'b100000001}; // this case will not hit/happen!!!
-                //bins allcase          = {9'b111111111};
-
                 bins max_value_bin  = {9'b100000000}; // MSB is 1
-
-              //  bins upper_half_bin = {[5'b00000, 4'b0001]:[5'b11111, 4'b1111]}; // Upper 4 bits are significant
-              //  bins odd_values     = {[9'b000000001:9'b111111111] with (data_req_i[0] == 1'b1)}; // Odd numbers  : In binary, numbers are odd when their LSB is 1
-              //  bins even_values    = {[9'b000000000:9'b111111110] with (data_req_i[0] == 1'b0)}; // Even numbers : In binary, numbers are even when their LSB is 0
         }
 endgroup
 
@@ -87,14 +72,6 @@ covergroup l2_data_addr @(posedge clk);
               
                 bins one_bin        = {14'b00000000000001}; // Least significant bit is 1
                 bins zero_bin        = {14'b00000000000000}; // Least significant bit is 1
-               // bins LSB2_bin       = {9'b000000010}; // 2nd Least significant bit is 1
-               // bins acase          = {9'b100000001}; //
-
-               // bins max_value_bin  = {9'b10000000}; // MSB is 1
-
-              //  bins upper_half_bin = {[5'b00000, 4'b0001]:[5'b11111, 4'b1111]}; // Upper 4 bits are significant
-              //  bins odd_values     = {[9'b000000001:9'b111111111] with (data_req_i[0] == 1'b1)}; // Odd numbers  : In binary, numbers are odd when their LSB is 1
-              //  bins even_values    = {[9'b000000000:9'b111111110] with (data_req_i[0] == 1'b0)}; // Even numbers : In binary, numbers are even when their LSB is 0
         }
 endgroup
 
@@ -107,14 +84,6 @@ covergroup l2_data_wen @(posedge clk);
               
                 bins one_bin        = {1'b1}; // Least significant bit is 1
                 bins zero_bin       = {1'b0};
-               // bins LSB2_bin       = {9'b000000010}; // 2nd Least significant bit is 1
-               // bins acase          = {9'b100000001}; //
-
-               // bins max_value_bin  = {9'b10000000}; // MSB is 1
-
-              //  bins upper_half_bin = {[5'b00000, 4'b0001]:[5'b11111, 4'b1111]}; // Upper 4 bits are significant
-              //  bins odd_values     = {[9'b000000001:9'b111111111] with (data_req_i[0] == 1'b1)}; // Odd numbers  : In binary, numbers are odd when their LSB is 1
-              //  bins even_values    = {[9'b000000000:9'b111111110] with (data_req_i[0] == 1'b0)}; // Even numbers : In binary, numbers are even when their LSB is 0
         }
 endgroup
 
@@ -125,14 +94,7 @@ covergroup l2_data_wdata @(posedge clk);
               
                 bins one_bin        = {32'h00000001}; // Least significant bit is 1
                 bins two_bin       = {32'h00000002};  // least significant bit is 2
-               // bins LSB2_bin       = {9'b000000010}; // 2nd Least significant bit is 1
-               // bins acase          = {9'b100000001}; //
 
-               // bins max_value_bin  = {9'b10000000}; // MSB is 1
-
-              //  bins upper_half_bin = {[5'b00000, 4'b0001]:[5'b11111, 4'b1111]}; // Upper 4 bits are significant
-              //  bins odd_values     = {[9'b000000001:9'b111111111] with (data_req_i[0] == 1'b1)}; // Odd numbers  : In binary, numbers are odd when their LSB is 1
-              //  bins even_values    = {[9'b000000000:9'b111111110] with (data_req_i[0] == 1'b0)}; // Even numbers : In binary, numbers are even when their LSB is 0
         }
 endgroup
 
@@ -143,15 +105,7 @@ covergroup l2_data_be @(posedge clk);
             { // Capture specific values
               
                 bins one_bin        = {4'b0001}; // 1st byte enable for 1st master      
-                bins four_bin       = {4'b1000};  // last byte enable for 1st master                                     
-               // bins LSB2_bin       = {9'b000000010}; // 2nd Least significant bit is 1
-               // bins acase          = {9'b100000001}; //
-
-               // bins max_value_bin  = {9'b10000000}; // MSB is 1
-
-              //  bins upper_half_bin = {[5'b00000, 4'b0001]:[5'b11111, 4'b1111]}; // Upper 4 bits are significant
-              //  bins odd_values     = {[9'b000000001:9'b111111111] with (data_req_i[0] == 1'b1)}; // Odd numbers  : In binary, numbers are odd when their LSB is 1
-              //  bins even_values    = {[9'b000000000:9'b111111110] with (data_req_i[0] == 1'b0)}; // Even numbers : In binary, numbers are even when their LSB is 0
+                bins four_bin       = {4'b1000};  // last byte enable for 1st master                                   
         }
 endgroup
 
@@ -161,48 +115,22 @@ endgroup
 //cross coverage:
 covergroup cross_cover_1 @(posedge clk);  // making it do auto coverage
   			coverpoint data_req_i {
-			//bins zero_bin       = {9'b000000000}; // All bits are 0
+			
 		        bins one_bin        = {9'b000000001}; // Least significant bit is 1  //hitting corner point
 		        bins LSB2_bin       = {9'b000000010}; // 2nd Least significant bit is 1  
-		        //bins acase          = {9'b100000001}; //
-		        //bins allcase          = {9'b111111111};
-
-		        //bins max_value_bin  = {9'b10000000}; // MSB is 1    			
-			//bins var1_bins[] = {0, 1, 2, 3};
   }
 			coverpoint data_gnt_o {
-			//bins zero_bin       = {9'b000000000}; // All bits are 0
 		        bins one_bin        = {9'b000000001}; // Least significant bit is 1  //hitting corner point
 		        bins LSB2_bin       = {9'b000000010}; // 2nd Least significant bit is 1
-		        //bins acase          = {9'b100000001}; //
-		        //bins allcase          = {9'b111111111};
-
-		        //bins max_value_bin  = {9'b10000000}; // MSB is 1    			
-			//bins var1_bins[] = {0, 1, 2, 3};
   }
 endgroup
 
 covergroup cross_cover_2 @(posedge clk);  // making it do auto coverage
   			coverpoint data_req_i {
-			//bins zero_bin       = {9'b000000000}; // All bits are 0
 		        bins one_bin        = {9'b000000001}; // Least significant bit is 1 
-		        //bins LSB2_bin       = {9'b000000010}; // 2nd Least significant bit is 1
-		        //bins acase          = {9'b100000001}; //
-		        //bins allcase          = {9'b111111111};
-
-		        //bins max_value_bin  = {9'b10000000}; // MSB is 1    			
-			//bins var1_bins[] = {0, 1, 2, 3};
   }
 			coverpoint data_add_i {
 			bins one_bin        = {14'b00000000000001}; // Least significant bit is 1
-			//bins zero_bin       = {9'b000000000}; // All bits are 0
-		        //bins one_bin        = {9'b000000001}; // Least significant bit is 1
-		        //bins LSB2_bin       = {9'b000000010}; // 2nd Least significant bit is 1
-		        //bins acase          = {9'b100000001}; //
-		        //bins allcase          = {9'b111111111};
-
-		        //bins max_value_bin  = {9'b10000000}; // MSB is 1    			
-			//bins var1_bins[] = {0, 1, 2, 3};
   }
   
 endgroup
@@ -228,45 +156,11 @@ endgroup
 
 
 
-/*
-
-  			coverpoint data_gnt_o {
-			//bins zero_bin       = {9'b000000000}; // All bits are 0
-		        bins one_bin[]        = {9'b000000001}; // Least significant bit is 1 
-		        //bins LSB2_bin       = {9'b000000010}; // 2nd Least significant bit is 1
-		        //bins acase          = {9'b100000001}; //
-		        //bins allcase          = {9'b111111111};
-
-		        //bins max_value_bin  = {9'b10000000}; // MSB is 1    			
-			//bins var1_bins[] = {0, 1, 2, 3};
-  }
-			coverpoint data_add_i {
-			bins one_bin[]        = {14'b00000000000001}; // Least significant bit is 1
-			//bins zero_bin       = {9'b000000000}; // All bits are 0
-		        //bins one_bin        = {9'b000000001}; // Least significant bit is 1
-		        //bins LSB2_bin       = {9'b000000010}; // 2nd Least significant bit is 1
-		        //bins acase          = {9'b100000001}; //
-		        //bins allcase          = {9'b111111111};
-
-		        //bins max_value_bin  = {9'b10000000}; // MSB is 1    			
-			//bins var1_bins[] = {0, 1, 2, 3};
-  }
-                        // Cross coverage between address and data
-                        cross data_gnt_o, data_add_i {
-                        // Crossbins representing all combinations of address and data
-                        bins crossbins[] = binsof(data_gnt_o) intersect binsof(data_add_i);
-  }
-  
-endgroup
-*/
-
 	 	initial begin 
 			l2_data_req_i inst_req = new();
 			l2_data_gnt_o inst_gnt = new();
                         l2_data_addr inst_addr = new();
                         l2_data_wen  inst_wen  = new();
-                        //l2_data_wdata  inst_wdata  = new();
-                        //l2_data_be inst_be     = new();
 			cross_cover_1 inst_cover_1 = new(); 
 			cross_cover_2 inst_cover_2 = new();   
 			cross_cover_3 inst_cover_3 = new();  
