@@ -95,7 +95,50 @@ class base_test extends uvm_test;
         env_instance = lint_env::type_id::create("env_instance",this);
         
     endfunction: build_phase
+
+//THe following run-phase need to be commented if we want to test individual tests (coverage)
+// for regression and coverage testing run this base_test!!! otherwise run the test directly from the tb_top!!!
+    virtual task run_phase (uvm_phase phase);
       
+        //run_test("single_bit_high_gnt_test");
+        phase.raise_objection(this);
+        $display("Objection single_high Started!");
+    
+        gnt_single_high.start(env_instance.lint_agent_inst.seqr);
+        #1000;
+        gnt_single_low.start(env_instance.lint_agent_inst.seqr);    
+        #1000;
+        gnt_multiple.start(env_instance.lint_agent_inst.seqr);
+        #1000;
+        single_write.start(env_instance.lint_agent_inst.seqr);     
+        #1000;
+        cons_write.start(env_instance.lint_agent_inst.seqr);  
+        #1000;
+        be_lsb.start(env_instance.lint_agent_inst.seqr);    
+        #1000;
+        be_msb.start(env_instance.lint_agent_inst.seqr);          
+        #1000;
+        fork
+        single_read.start(env_instance.lint_agent_inst.seqr); 
+        single_read_r.start(env_instance.lint_agent_1_inst.r_seqr);     //r_seqr here   
+        join
+        #1000;
+        fork
+        cons_read.start(env_instance.lint_agent_inst.seqr); 
+        cons_read_r.start(env_instance.lint_agent_1_inst.r_seqr);     //r_seqr here            
+        join     
+        #1000;  
+        //gnt_single_high.start(env_instance.lint_agent_inst.seqr);
+        //#500;
+        //run_test("single_bit_low_gnt_test");
+        //gnt_single_low.start(env_instance.lint_agent_inst.seqr); 
+        //#1000;
+
+        phase.drop_objection(this);
+        $display("Objection Dropped!"); 
+        
+    endtask
+     
     function void end_of_elaboration_phase(uvm_phase phase);
         $display("Topology Report");
         uvm_top.print_topology();
@@ -149,17 +192,17 @@ class single_bit_low_gnt_test extends base_test;
         $display("Run Phase Started!");
         
         phase.raise_objection(this);
-        $display("Objection Started!");
+        $display("Objection single_bit_low_gnt Started!");
         
         gnt_single_low.start(env_instance.lint_agent_inst.seqr);
         
         
       #500ns;
         
-        $display("Sequence started!"); 
+        $display("Sequence single_bit_low_gnt started!"); 
       
         phase.drop_objection(this);
-        $display("Objection Dropped!"); 
+        $display("Objection single_bit_low_gnt Dropped!"); 
       
     endtask
 
@@ -237,17 +280,17 @@ class cons_write_test extends base_test;
         $display("Run Phase Started!");
         
         phase.raise_objection(this);
-        $display("Objection Started!");
+        $display("Objection cons_write Started!");
       
         cons_write.start(env_instance.lint_agent_inst.seqr);  
         
     
         #500ns;
         
-        $display("Sequence started!"); 
+        $display("Sequence cons_write started!"); 
       
         phase.drop_objection(this);
-        $display("Objection Dropped!"); 
+        $display("Objection cons_write Dropped!");   
       
     endtask
 

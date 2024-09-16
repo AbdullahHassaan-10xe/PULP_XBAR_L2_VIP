@@ -1,0 +1,24 @@
+select_coverage -all 
+set_assign_scoring
+set_branch_scoring
+set_statement_scoring
+set_expr_scoring -all
+set_expr_coverable_operators -all
+set_expr_coverable_statements -all
+select_functional
+set_covergroup -new_instance_reporting
+set_covergroup -merge_cp_by_name
+set_parameterized_module_coverage -all_parameters
+set_optimize
+
+
+
+
+
+
+
+
+
+
+
+

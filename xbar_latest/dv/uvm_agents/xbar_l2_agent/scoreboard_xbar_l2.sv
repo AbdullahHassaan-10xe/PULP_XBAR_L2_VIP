@@ -56,7 +56,7 @@ class scoreboard_xbar_l2 extends uvm_scoreboard;
             //single_bit_low_grant(expected_data); 
             //multiple_bits_grant(expected_data);
             //single_write(expected_data);
-            cons_write(expected_data);
+            //cons_write(expected_data);
             //be_lsb(expected_data);
             //be_msb(expected_data);
             //single_read(expected_data, expected_data_slave); 
@@ -147,12 +147,12 @@ class scoreboard_xbar_l2 extends uvm_scoreboard;
         if((t.data_wdata_i[0] == expected_data_slave.data_wdata_o[0]) || (t.data_wdata_i[0] == expected_data_slave.data_wdata_o[1]) || (t.data_wdata_i[0] == expected_data_slave.data_wdata_o[2]) || (t.data_wdata_i[0] == expected_data_slave.data_wdata_o[3]) 
          || (t.data_wdata_i[1] == expected_data_slave.data_wdata_o[0]) || (t.data_wdata_i[1] == expected_data_slave.data_wdata_o[1]) || (t.data_wdata_i[1] == expected_data_slave.data_wdata_o[2]) || (t.data_wdata_i[1] == expected_data_slave.data_wdata_o[3]) ) begin//this arrangement refers to the assignment of memory module 2
             //comparing
-            `uvm_info("Sb", "Scoreboard has passed the Comparison", UVM_NONE)
+            `uvm_info("Sb", "Scoreboard has passed the Comparison for cons_write", UVM_NONE)
             `uvm_info(get_full_name(), $sformatf("expected_data=%h,actual_data =%h",t.data_wdata_i,expected_data_slave.data_wdata_o), UVM_NONE) // data display for 2nd slave becuase request_o choses 2nd. (this requires manual info taking from waveform)
         
         end
         else begin
-            `uvm_info("Sb", "Scoreboard has failed the Comparison", UVM_NONE)
+            `uvm_info("Sb", "Scoreboard has failed the Comparison for cons_write", UVM_NONE)
             `uvm_info(get_full_name(), $sformatf("expected_data=%h,actual_data =%h",t.data_wdata_i,expected_data_slave.data_wdata_o), UVM_NONE) // data display for 2nd slave becuase request_o choses 2nd. (this requires manual info taking from waveform)
         end
     

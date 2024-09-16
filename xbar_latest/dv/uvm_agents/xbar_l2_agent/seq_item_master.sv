@@ -1,4 +1,5 @@
-
+//import uvm_pkg::*;
+//`include "uvm_macros.svh"
     
     
     class seq_item_master extends uvm_sequence_item;

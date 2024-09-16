@@ -52,7 +52,7 @@ class p_seq extends uvm_sequence;
       
         //execution of the sequences
         //starting the sequences
-        fork
+        //fork
         //master_seq.start(p_sequencer.inst_sequencer); 
         single_bit_high.start(p_sequencer.inst_sequencer);
         single_bit_low.start(p_sequencer.inst_sequencer);   
@@ -66,7 +66,7 @@ class p_seq extends uvm_sequence;
         cons_read.start(p_sequencer.inst_sequencer);   
         cons_read_r.start(p_sequencer.slave_sequencer);     
         //slave_seq.start(p_sequencer.slave_sequencer);
-        join
+        //join
       
     endtask
 

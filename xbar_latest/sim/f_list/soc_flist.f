@@ -1,22 +1,23 @@
-$ROOT/rtl/AddressDecoder_Req_L2.sv
-$ROOT/rtl/AddressDecoder_Resp_L2.sv
-$ROOT/rtl/ArbitrationTree_L2.sv
-$ROOT/rtl/FanInPrimitive_Req_L2.sv
-$ROOT/rtl/FanInPrimitive_Resp_L2.sv
-$ROOT/rtl/MUX2_REQ_L2.sv
-$ROOT/rtl/RequestBlock_L2_1CH.sv
-$ROOT/rtl/RequestBlock_L2_2CH.sv
-$ROOT/rtl/ResponseBlock_L2.sv
-$ROOT/rtl/ResponseTree_L2.sv
-$ROOT/rtl/RR_Flag_Req_L2.sv
-$ROOT/rtl/XBAR_L2.sv
+/home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/rtl/AddressDecoder_Req_L2.sv
+/home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/rtl/AddressDecoder_Resp_L2.sv
+/home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/rtl/ArbitrationTree_L2.sv
+/home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/rtl/FanInPrimitive_Req_L2.sv
+/home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/rtl/FanInPrimitive_Resp_L2.sv
+/home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/rtl/MUX2_REQ_L2.sv
+/home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/rtl/RequestBlock_L2_1CH.sv
+/home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/rtl/RequestBlock_L2_2CH.sv
+/home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/rtl/ResponseBlock_L2.sv
+/home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/rtl/ResponseTree_L2.sv
+/home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/rtl/RR_Flag_Req_L2.sv
+/home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/rtl/XBAR_L2.sv
 // tb for UVM test environment
-$ROOT/dv/uvm_agents/xbar_l2_agent/env_pkg.sv
-$ROOT/dv/tb/tb_xbar_l2/xbar_l2_coverage.sv
-$ROOT/dv/uvm_agents/xbar_l2_agent/master_intf.sv 
-$ROOT/dv/uvm_agents/xbar_l2_agent/slave_intf.sv 
-$ROOT/dv/seq_lib/seq_pkg.sv
-$ROOT/dv/tests/base_test.sv 
-$ROOT/dv/tb/tb_xbar_l2/tb_top.sv 
+/home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/dv/uvm_agents/xbar_l2_agent/seq_item_master.sv
+/home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/dv/uvm_agents/xbar_l2_agent/env_pkg.sv
+// home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/dv/tb/tb_xbar_l2/xbar_l2_coverage.sv
+/home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/dv/uvm_agents/xbar_l2_agent/master_intf.sv 
+/home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/dv/uvm_agents/xbar_l2_agent/slave_intf.sv 
+/home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/dv/seq_lib/seq_pkg.sv
+/home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/dv/tests/base_test.sv 
+/home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/dv/tb/tb_xbar_l2/tb_top.sv 
 
 

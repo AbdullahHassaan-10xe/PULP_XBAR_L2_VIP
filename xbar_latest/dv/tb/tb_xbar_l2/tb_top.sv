@@ -1,9 +1,10 @@
+import env_pkg::*;
+import seq_pkg::*;
+//import uvm_pkg::*;     //added for questa support
+//`include "uvm_macros.svh"
 
-import uvm_pkg::*;     //added for questa support
-`include "uvm_macros.svh"
 
-
-`include "base_test.sv";
+`include "/home/abdullah_hassaan/Documents/Coverage_check_xbar_l2/Coverage_check_xbar_l2/xbar_latest1_coverage_extnd/xbar_latest/dv/tests/base_test.sv";
 
 
   module tb_top;
@@ -60,7 +61,12 @@ import uvm_pkg::*;     //added for questa support
           uvm_config_db#(virtual slave_intf ) :: set(null,"*","slave_if",slave_if);
           
           
-          run_test("base_test");
+          run_test("base_test");  
+          //run_test("single_bit_high_gnt_test");       
+          //run_test("single_bit_low_gnt_test");
+          //run_test("cons_write_test");
+          //run_test("cons_write_test");
+          //run_test("cons_write_test");
       end
 
       
